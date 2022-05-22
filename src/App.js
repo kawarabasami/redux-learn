@@ -1,9 +1,10 @@
 import React from "react";
 import './App.css';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import Count from './components/count'
 
-function App({count}) {
+function App() {
+  const count = useSelector((state) => state.count);
   return (
     <div>
       <h1>Redux Learn</h1>
@@ -13,8 +14,4 @@ function App({count}) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return { count: state.count};
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

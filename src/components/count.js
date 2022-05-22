@@ -1,6 +1,7 @@
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 
-function Count({count}){
+function Count(){
+    const count = useSelector((state) => state.count);
     return (
         <>
         <div>
@@ -10,8 +11,4 @@ function Count({count}){
     )
 }
 
-const mapStateToProps = (state) => {
-    return { count: state.count};
-}
-
-export default connect(mapStateToProps)(Count);
+export default Count;
