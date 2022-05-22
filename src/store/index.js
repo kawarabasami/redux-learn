@@ -1,14 +1,22 @@
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 
-const initialState = {
-    count: 1
+const countReducer = (state = {count: 50}) => {
+    return state
 }
-
-const reducer = (state = initialState) => {
+const postsReducer = (state = {posts: [
+    {id: 1, title: 'Reduxについて'},
+    {id: 2, title: 'ReduxのHooksについて'}
+]}) => {
     return state
 }
 
-const store = createStore(reducer);
+const rootReducer = combineReducers({
+    countReducer,
+    postsReducer
+})
+
+const store = createStore(rootReducer);
+console.log(store.getState())
 
 
 export default store;
